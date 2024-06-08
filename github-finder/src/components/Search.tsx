@@ -36,7 +36,7 @@ const Search = ({ loadUser }: SearchProps) => {
           onKeyDown={handleKeyDown}
         />
         <button onClick={handleSearch}>
-          <BsSearch />
+          <BsSearch size={18} />
         </button>
       </div>
     </div>
