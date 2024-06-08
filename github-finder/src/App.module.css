@@ -1,0 +1,9 @@
+.app_container {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.app_container h1 {
+  text-align: center;
+  margin: 1rem 0 1rem 0;
+}

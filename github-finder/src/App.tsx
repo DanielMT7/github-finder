@@ -1,8 +1,10 @@
 import { useState } from 'react'
 
+import Search from './components/Search'
+
 import { UserProps } from './types/user'
 
-import './App.css'
+import styles from './App.module.css'
 
 function App() {
   const [user, setUser] = useState<UserProps | null>(null)
@@ -11,12 +13,24 @@ function App() {
     const res = await fetch(`https://api.github.com/users/${userName}`)
     const data = await res.json()
 
-    console.log(data)
+    const { avatar_url, login, location, followers, following } = data
+
+    const userData: UserProps = {
+      avatar_url,
+      login,
+      location,
+      followers,
+      following
+    }
+
+    setUser(userData)
   }
 
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className={styles.app_container}>
+      <h1>Github Finder</h1>
+      <Search loadUser={loadUser} />
+      {user && <div>{user.login}</div>}
     </div>
   )
 }
